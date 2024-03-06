@@ -1,4 +1,5 @@
 import Entity.Product;
+import InterfaceAnimals.*;
 import SOLID.*;
 
 import java.util.ArrayList;
@@ -40,5 +41,13 @@ public class Main {
         DependencyInversionPrincipleProduct dependency= new DependencyInversionPrincipleProduct();
         List<String> resp=dependency.GetProduct(products);
         System.out.println(resp);
+
+
+        //Exercise the Animals run
+        IAnimalImpl[] motion={new AnimalLandImpl(),new AnimalFlyingImpl(),new AnimalSwimImpl()};
+        for (IAnimalImpl animalMotion:motion){
+            IAnimal movement= animalMotion.createAnimalMovement();
+            movement.Move();
+        }
     }
 }
